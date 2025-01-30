@@ -1,0 +1,1 @@
+This repository contains implementations of various computer network simulations as per the ISE Computer Networks Lab syllabus. The programs are designed to simulate and analyze different networking protocols, topologies, congestion scenarios, and wireless communication techniques using TCL scripting and NS2 (Network Simulator 2).
