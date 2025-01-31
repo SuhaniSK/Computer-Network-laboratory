@@ -2,9 +2,9 @@
 #Implement an Ethernet LAN using n nodes, set multiple traffic nodes, and plot congestion window for different source/destination pairs.
 set ns [ new Simulator ]
 
-set tracefile [ open lab2.tr w ]
+set tracefile [ open lab3.tr w ]
 $ns trace-all $tracefile
-set namfile [ open lab2.nam w ]
+set namfile [ open lab3.nam w ]
 $ns namtrace-all $namfile
 
 set ng1 [ open tcp1.xg w ]
@@ -49,7 +49,7 @@ $ns flush-trace
 close $namfile
 close $tracefile
 exec xgraph tcp1.xg tcp2.xg &
-exec nam lab2.nam &
+exec nam lab3.nam &
 exit 0
 }
 
