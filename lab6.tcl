@@ -1,3 +1,6 @@
+# 6.⁠ ⁠Token Bus Protocol Simulation
+#Create a scenario and study the performance of token bus protocol through a simulator using bus topology.
+
 set ns [ new Simulator ]
 
 set namfile [ open lab6.nam w ]
