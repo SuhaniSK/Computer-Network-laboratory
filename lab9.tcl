@@ -26,7 +26,7 @@ set sink [ new Agent/TCPSink ]
 $ns attach-agent $n1 $sink
 $ns connect $tcp $sink
 
-set ftp [ Application/FTP ]
+set ftp [ new Application/FTP ]
 $ftp attach-agent $tcp
 
 $ns add-agent-trace $tcp tcp
