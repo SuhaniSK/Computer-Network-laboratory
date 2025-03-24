@@ -1,6 +1,6 @@
 # 2.⁠ ⁠Network Congestion Analysis
 #Implement the transmission of ping messages/trace rlab2e over a network topology consisting of 6 nodes and find the number of packets dropped due to congestion.
-set ns [new Simulator]
+set ns [ new Simulator ]
 
 $ns color 1 blue
 $ns color 2 red
@@ -29,12 +29,6 @@ Agent/Ping instproc recv {from rtt} {
 	puts " node [$node_ id] recieved ping answer from $from with round trip time $rtt ms "
 }
 
-$ns queue-limit $n0 $n1 10
-$ns queue-limit $n1 $n2 10
-$ns queue-limit $n2 $n3 10
-$ns queue-limit $n3 $n4 10
-$ns queue-limit $n4 $n5 10
-
 set p0 [ new Agent/Ping ]
 $p0 set class_ 1
 $ns attach-agent $n0 $p0
@@ -44,19 +38,20 @@ $p1 set class_ 1
 $ns attach-agent $n5 $p1
 $ns connect $p0 $p1
 
+$ns queue-limit $n2 $n3 2
+
 set tcp [ new Agent/TCP ]
 $tcp set class_ 2
 $tcp set fid_ 1
 set sink [ new Agent/TCPSink ]
-$ns attach-agent $n0 $tcp
-$ns attach-agent $n5 $sink
+$ns attach-agent $n2 $tcp
+$ns attach-agent $n4 $sink
 
 $ns connect $tcp $sink
 
 set cbr [ new Application/Traffic/CBR ]
 $cbr set packetSize_ 500
 $cbr set rate_ 1 Mb
-
 $cbr attach-agent $tcp
 
 proc finish {} {
@@ -65,7 +60,7 @@ proc finish {} {
         close $tracefile
 	close $namfile
 	exec nam lab2.nam &
-	exec echo "The number of ping message lost is: " &
+	exec echo "The number of ping message dropped is: " &
 	exec grep "^d" lab2.tr | cut -d " " -f 5 | grep -c "ping" &
 	exit 0
 }
