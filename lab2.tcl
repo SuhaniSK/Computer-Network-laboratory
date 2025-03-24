@@ -26,7 +26,7 @@ $ns duplex-link $n4 $n5 0.5Mb 10ms DropTail
 
 Agent/Ping instproc recv {from rtt} {
 	$self instvar node_
-	puts "node [$node_ id] recieved ping answer $from round trip $rtt ms"
+	puts " node [$node_ id] recieved ping answer from $from with round trip time $rtt ms "
 }
 
 $ns queue-limit $n0 $n1 10
