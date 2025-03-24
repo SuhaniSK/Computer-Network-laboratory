@@ -18,7 +18,6 @@ $ns duplex-link-op $n0 $n1 orient right
 
 Agent/TCP set nam_tracevar_ true
 set tcp [ new Agent/TCP ]
-$tcp set fid_ 1
 $tcp set window_ 3
 $tcp set maxcwnd_ 4
 $ns attach-agent $n0 $tcp
