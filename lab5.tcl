@@ -5,14 +5,14 @@ set ns [ new Simulator ]
 #not a compulsion
 $ns color 1 blue
 
-set namfile [ open lab4.nam w ]
+set namfile [ open lab5.nam w ]
 $ns namtrace-all $namfile
 
 proc finish { } {
 global ns namfile
 $ns flush-trace
 close $namfile
-exec nam lab4.nam &
+exec nam lab5.nam &
 exit 0
 }
 
