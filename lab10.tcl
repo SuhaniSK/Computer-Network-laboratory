@@ -1,9 +1,9 @@
 # 10. Implement simple ESS and with transmitting nodes in wire-less LAN by simulation
 # and determine the performance with respect to transmission of packets.
 set ns [new Simulator]
-set na [open Lab4.nam w]
+set na [open Lab10.nam w]
 $ns namtrace-all-wireless $na 500 500
-set nt [open Lab4.tr w]
+set nt [open Lab10.tr w]
 $ns trace-all $nt
 set topo [new Topography]
 $topo load_flatgrid 500 500
@@ -59,7 +59,7 @@ global ns nt na
 $ns flush-trace
 close $na
 close $nt
-exec nam Lab4.nam &
+exec nam Lab10.nam &
 }
 $ns at 0.0 "$cbr1 start"
 $ns at 0.0 "$cbr2 start"
