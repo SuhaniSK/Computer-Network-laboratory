@@ -6,7 +6,7 @@ set propDL(gsm) .500
 set propUL(gsm) .500
 set buf(gsm) 10
 set ns [new Simulator]
-set nt [open Lab5.tr w]
+set nt [open lab11.tr w]
 $ns trace-all $nt
 set nodes(c1) [$ns node]
 set nodes(ms) [$ns node]
@@ -52,7 +52,7 @@ proc End {} {
 global ns nt
 $ns flush-trace
 close $nt
-exec awk -f Lab5.awk Lab5.tr &
+exec awk -f lab11.awk lab11.tr &
 exec xgraph -P -bar -x TIME -y DATA gsm.xg &
 exit 0
 }
