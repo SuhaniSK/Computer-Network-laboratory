@@ -6,7 +6,7 @@ set propDL(cdma) .150
 set propUL(cdma) .150
 set buf(cdma) 20
 set ns [new Simulator]
-set nt [open Lab6.tr w]
+set nt [open lab12.tr w]
 $ns trace-all $nt
 set nodes(c1) [$ns node]
 set nodes(ms) [$ns node]
@@ -50,7 +50,7 @@ proc End {} {
 global ns nt
 $ns flush-trace
 close $nt
-exec awk -f Lab6.awk Lab6.tr &
+exec awk -f lab12.awk lab12.tr &
 exec xgraph -P -bar -x TIME -y DATA cdma.xg &
 exit 0
 }
